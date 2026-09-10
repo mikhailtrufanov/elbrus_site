@@ -1081,8 +1081,9 @@
     .ftr {
       background: var(--abyss);
       color: var(--foam);
-      padding: 56px 0 34px;
-      font-size: 14px
+      padding: 56px 0 18px;
+      font-size: 14px;
+      position: relative
     }
 
     .ftr-g {
@@ -1119,6 +1120,27 @@
       font-family: var(--mono);
       font-size: 11.5px;
       opacity: .7
+    }
+
+    .ftr-btm a {
+      display: inline;
+      padding: 0;
+      text-decoration: underline
+    }
+
+    .ftr-credit {
+      position: absolute;
+      right: 20px;
+      bottom: 10px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--foam);
+      opacity: .3;
+      text-decoration: none
+    }
+
+    .ftr-credit:hover {
+      opacity: .6
     }
 
     /* ---------- reveal ---------- */
@@ -1968,7 +1990,7 @@
         <div>
           <div class="hr-box" style="margin-top:0"><b>Отдел продаж</b><a href="tel:+79147120816">+7 914 712-08-16</a>
           </div>
-          <p style="color:var(--foam);margin-top:18px;font-family:var(--mono);font-size:13px"><a href="mailto:masterushki@list.ru" style="color:var(--foam);text-decoration:underline">Написать нам</a></p>
+          <p style="color:var(--foam);margin-top:18px;font-family:var(--mono);font-size:13px"><a href="mailto:Fish042011@mail.ru" style="color:var(--foam);text-decoration:underline">Написать нам</a></p>
           <div class="msgrs">
             <a class="msgr" href="https://max.ru/u/f9LHodD0cOJZoiw3vXbMJLRTbSyV14CMwtY31w-Tjgg4xxMLqUXHnYgu-gY" target="_blank" rel="noopener" aria-label="Написать в MAX" title="MAX">
               <img src="Max_logo_black-1024x1024.png" alt="MAX" />
@@ -1986,8 +2008,12 @@
           <input type="tel" placeholder="Телефон (мессенджер)" required>
           <input type="email" placeholder="Почта">
           <textarea placeholder="Комментарий: интересующая продукция и объём"></textarea>
-          <label class="consent"><input type="checkbox" required> <span>Я соглашаюсь с <a href="#privacy-policy">политикой обработки персональных
-            данных</a>.</span></label>
+          <label class="consent"><input type="checkbox" required> <span>Нажимая кнопку «Записаться», я даю свое
+              согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года
+              №152-ФЗ «О персональных данных», на условиях и для целей, определенных в <a
+                href="#personal-data-consent">Согласии на обработку персональных данных</a>.</span></label>
+          <label class="consent"><input type="checkbox" required> <span>Я подтверждаю свое согласие с условиями <a
+                href="#privacy-policy">Политики конфиденциальности</a>.</span></label>
           <button type="submit" class="btn btn-amber" style="justify-self:start">Отправить заявку</button>
         </form>
       </div>
@@ -2012,7 +2038,8 @@
           <a href="tel:+79147120816">Отдел продаж: +7 914 712-08-16</a>
         </div>
       </div>
-      <div class="ftr-btm">© 2026 ООО «Эльбрус» · ИНН 2538146392 · Политика конфиденциальности</div>
+      <div class="ftr-btm">© 2026 ООО «Эльбрус» · ИНН 2538146392 · <a href="#privacy-policy">Политика конфиденциальности</a> · <a href="#personal-data-consent">Согласие на обработку персональных данных</a></div>
+      <a class="ftr-credit" href="#">Разработка - MikhailTrufanov</a>
     </div>
   </footer>
   <script>

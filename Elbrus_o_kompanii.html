@@ -206,12 +206,12 @@ p{margin:0 0 16px}
 .msgr img{width:20px;height:20px;display:block;object-fit:contain;filter:brightness(0) invert(1)}
 
 /* ---------- footer ---------- */
-.ftr{background:var(--abyss);color:var(--foam);padding:56px 0 34px;font-size:14px}
+.ftr{background:var(--abyss);color:var(--foam);padding:56px 0 18px;font-size:14px;position:relative}
 .ftr-g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
 .ftr a{color:var(--foam);text-decoration:none;display:block;padding:3px 0}
 .ftr a:hover{color:#fff}
 .ftr h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:0 0 12px;font-weight:500}
-.ftr-btm{border-top:1px solid rgba(147,184,204,.16);margin-top:36px;padding-top:20px;font-family:var(--mono);font-size:11.5px;opacity:.7}
+.ftr-btm{border-top:1px solid rgba(147,184,204,.16);margin-top:36px;padding-top:20px;font-family:var(--mono);font-size:11.5px;opacity:.7}.ftr-btm a{display:inline;padding:0;text-decoration:underline}.ftr-credit{position:absolute;right:20px;bottom:10px;font-family:var(--mono);font-size:10px;color:var(--foam);opacity:.3;text-decoration:none}.ftr-credit:hover{opacity:.6}
 
 /* ---------- reveal ---------- */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
@@ -302,9 +302,9 @@ p{margin:0 0 16px}
     <a href="index.html" class="logo">ЭЛЬБРУС<span>.</span></a>
     <nav class="nav">
       <a href="#about">О компании</a>
-      <a href="#fleet">Флот</a>
-      <a href="#catch">Промысел и продукция</a>
-      <a href="#vacancies">Работа в море</a>
+      <a href="index.html#fleet">Флот</a>
+      <a href="Elbrus_production.html">Промысел и продукция</a>
+      <a href="Elbrus_work.html">Работа в море</a>
       <a href="Elbrus_work.html#life">Условия труда</a>
       <a href="#contacts">Контакты</a>
     </nav>
@@ -415,9 +415,9 @@ p{margin:0 0 16px}
         <a href="tel:+79146910747"
           style="font-family:var(--display);font-size:22px;color:var(--blue);text-decoration:none">8 914 691-07-47</a>
         <div class="msgrs">
-          <span class="msgr" aria-label="MAX" title="MAX">
+          <a class="msgr" href="https://max.ru/u/f9LHodD0cOKA3kQjHaRKLTjYLIGsNuPNC4u_e3JG8VaYdOQYaML1v7WZ85M" target="_blank" rel="noopener" aria-label="Написать в MAX" title="MAX">
             <img src="Max_logo_black-1024x1024.png" alt="MAX" />
-          </span>
+          </a>
           <a class="msgr" href="https://wa.me/79146910747" target="_blank" rel="noopener"
             aria-label="Написать в WhatsApp" title="WhatsApp"><svg viewBox="0 0 448 512" fill="currentColor">
               <path
@@ -444,7 +444,7 @@ p{margin:0 0 16px}
       </div>
       <div>
         <h4>Разделы</h4>
-        <a href="#about">О компании</a><a href="#fleet">Флот</a><a href="#catch">Промысел и продукция</a><a href="#vacancies">Работа в море</a><a href="Elbrus_work.html#life">Условия труда</a><a href="#contacts">Контакты</a>
+        <a href="#about">О компании</a><a href="index.html#fleet">Флот</a><a href="Elbrus_production.html">Промысел и продукция</a><a href="Elbrus_work.html">Работа в море</a><a href="Elbrus_work.html#life">Условия труда</a><a href="#contacts">Контакты</a>
       </div>
       <div>
         <h4>Контакты</h4>
@@ -452,7 +452,8 @@ p{margin:0 0 16px}
         <a href="tel:+79147120816">Отдел продаж: +7 914 712-08-16</a>
       </div>
     </div>
-    <div class="ftr-btm">© 2026 ООО «Эльбрус» · ИНН 2538146392 · Политика конфиденциальности</div>
+    <div class="ftr-btm">© 2026 ООО «Эльбрус» · ИНН 2538146392 · <a href="#privacy-policy">Политика конфиденциальности</a> · <a href="#personal-data-consent">Согласие на обработку персональных данных</a></div>
+    <a class="ftr-credit" href="#">Разработка - MikhailTrufanov</a>
   </div>
 </footer>
 <script>
