@@ -49,6 +49,9 @@ p{margin:0 0 16px}
 .hdr .btn{padding:10px 18px;font-size:13px}
 .hdr-cta{display:flex;align-items:center;gap:8px}
 .hdr-cta .btn{min-width:130px}
+.nav-cta{display:none}
+.nav-cta a.btn-amber,.nav-cta a.btn-amber:hover{color:#fff}
+.nav-cta a.btn-light,.nav-cta a.btn-light:hover{color:var(--blue)}
 .burger{display:none;margin-left:auto;background:none;border:1px solid rgba(147,184,204,.4);color:var(--ice);border-radius:2px;padding:8px 12px;font-family:var(--mono);font-size:12px}
 
 /* ---------- hero ---------- */
@@ -233,8 +236,8 @@ p{margin:0 0 16px}
   .nav{display:none}
   .nav.is-open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:14px;background:#04111B;padding:16px 20px;border-bottom:1px solid rgba(147,184,204,.2)}
   .burger{display:block}
-  .hdr .hdr-cta{margin-left:auto}
-  .hdr .burger{margin-left:0}
+  .hdr .hdr-cta{display:none}
+  .nav-cta{display:flex;gap:10px;margin-top:4px}
 }
 @media(max-width:720px){
   body{font-size:16px}
@@ -262,14 +265,6 @@ p{margin:0 0 16px}
   .zone b{min-width:0}
   .hero-slot{height:170px}
 
-  /* mobile header: logo + menu, CTA row below */
-  .hdr .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"logo menu" "cta cta";align-items:center;height:auto;gap:6px 12px;padding-block:8px}
-  .hdr .logo{grid-area:logo}
-  .hdr .burger{grid-area:menu;margin-left:0}
-  .hdr .burger,.hdr .hdr-cta .btn{min-height:36px}
-  /* CTA row sized like the menu button, so it adds one compact line */
-  .hdr .hdr-cta{grid-area:cta;margin-left:0;display:flex;align-items:center;justify-content:flex-end;gap:8px}
-  .hdr .hdr-cta .btn{min-width:0;padding:8px 12px;font-size:11px;letter-spacing:.05em;white-space:nowrap}
   [id]{scroll-margin-top:116px}
   /* fleet: heading stays on the photo, prose moves below */
   .fleet-ov{padding:12px 0 0}
@@ -328,6 +323,7 @@ p{margin:0 0 16px}
       <a href="Elbrus_work.html">Работа в море</a>
       <a href="Elbrus_work.html#life">Условия труда</a>
       <a href="#contacts">Контакты</a>
+      <span class="nav-cta"><a href="Elbrus_work.html#vacancies" class="btn btn-amber">Вакансии</a><a href="Elbrus_production.html#contacts" class="btn btn-light">Купить оптом</a></span>
     </nav>
     <span class="hdr-cta"><a href="Elbrus_work.html#vacancies" class="btn btn-amber">Вакансии</a><a href="Elbrus_production.html#contacts" class="btn btn-light">Купить оптом</a></span>
     <button class="burger" aria-label="Меню">МЕНЮ</button>

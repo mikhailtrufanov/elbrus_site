@@ -1222,11 +1222,13 @@
       }
 
       .hdr .hdr-cta {
-        margin-left: auto
+        display: none
       }
 
-      .hdr .burger {
-        margin-left: 0
+      .nav-cta {
+        display: flex;
+        gap: 10px;
+        margin-top: 4px
       }
     }
 
@@ -1340,51 +1342,6 @@
 
       .hero-slot {
         height: 170px
-      }
-
-      /* ---------- mobile header: logo + menu, CTA row below ---------- */
-      .hdr .wrap {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        grid-template-areas: "logo menu" "cta cta";
-        align-items: center;
-        height: auto;
-        gap: 6px 12px;
-        padding-block: 8px
-      }
-
-      .hdr .logo {
-        grid-area: logo
-      }
-
-      .hdr .burger {
-        grid-area: menu;
-        margin-left: 0
-      }
-
-      /* Menu button and CTAs share one height so the two rows read as a set. */
-      .hdr .burger,
-      .hdr .hdr-cta .btn {
-        min-height: 36px
-      }
-
-      /* The CTA row sits under the logo and is sized like the menu button, so it
-         adds one compact line instead of stretching the header. */
-      .hdr .hdr-cta {
-        grid-area: cta;
-        margin-left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 8px
-      }
-
-      .hdr .hdr-cta .btn {
-        min-width: 0;
-        padding: 8px 12px;
-        font-size: 11px;
-        letter-spacing: .05em;
-        white-space: nowrap
       }
 
       [id] {
@@ -1595,6 +1552,20 @@
       min-width: 130px
     }
 
+    .nav-cta {
+      display: none
+    }
+
+    .nav-cta a.btn-amber,
+    .nav-cta a.btn-amber:hover {
+      color: #fff
+    }
+
+    .nav-cta a.btn-light,
+    .nav-cta a.btn-light:hover {
+      color: var(--blue)
+    }
+
     .prod-text {
       max-width: 80ch;
       margin-top: 40px
@@ -1780,6 +1751,8 @@
         <a href="Elbrus_work.html">Работа в море</a>
         <a href="Elbrus_work.html#life">Условия труда</a>
         <a href="#contacts">Контакты</a>
+        <span class="nav-cta"><a href="Elbrus_work.html#vacancies" class="btn btn-amber">Вакансии</a><a href="#contacts"
+            class="btn btn-light">Купить оптом</a></span>
       </nav>
       <span class="hdr-cta"><a href="Elbrus_work.html#vacancies" class="btn btn-amber">Вакансии</a><a href="#contacts"
           class="btn btn-light">Купить оптом</a></span>
