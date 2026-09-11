@@ -632,6 +632,14 @@
       color: #22384A
     }
 
+    .fleet-description {
+      max-width: 70ch;
+      margin: 28px 0 0;
+      color: #D4E4EC;
+      font-size: 18px;
+      line-height: 1.6
+    }
+
     .hero-cta-under {
       display: flex;
       gap: 14px;
@@ -1308,14 +1316,23 @@
 
     /* ---------- reveal ---------- */
     .rv {
+      opacity: 1;
+      transform: none
+    }
+
+    .js-rv .rv {
       opacity: 0;
       transform: translateY(18px);
       transition: opacity .7s ease, transform .7s ease
     }
 
-    .rv.in {
+    .js-rv .rv.in {
       opacity: 1;
       transform: none
+    }
+
+    [id] {
+      scroll-margin-top: 86px
     }
 
     /* ---------- responsive ---------- */
@@ -1358,12 +1375,29 @@
         display: none
       }
 
+      .nav.is-open {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 14px;
+        background: #04111B;
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(147, 184, 204, .2)
+      }
+
       .burger {
         display: block
       }
 
-      .hdr .btn {
-        display: none
+      .hdr .hdr-cta {
+        margin-left: auto
+      }
+
+      .hdr .burger {
+        margin-left: 0
       }
     }
 
@@ -1412,13 +1446,26 @@
         margin: 14px 0 20px
       }
 
+      .hero-scroll-hint {
+        display: none
+      }
+
       .hero-ov .hero-cta {
-        justify-content: flex-start
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        width: 100%;
+        max-width: 420px;
+        margin-inline: auto
       }
 
       .hero-ov .btn {
         font-size: 13px;
-        padding: 12px 20px
+        min-width: 0;
+        min-height: 48px;
+        padding: 12px 8px;
+        white-space: normal;
+        text-align: center
       }
 
       .hero h1 {
@@ -1478,6 +1525,78 @@
       .hero-slot {
         height: 170px
       }
+
+      /* ---------- mobile header: logo + menu, CTA row below ---------- */
+      .hdr .wrap {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas: "logo menu" "cta cta";
+        align-items: center;
+        height: auto;
+        gap: 10px 12px;
+        padding-block: 10px
+      }
+
+      .hdr .logo {
+        grid-area: logo
+      }
+
+      .hdr .burger {
+        grid-area: menu;
+        min-height: 44px;
+        margin-left: 0
+      }
+
+      .hdr .hdr-cta {
+        grid-area: cta;
+        margin-left: 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px
+      }
+
+      .hdr .hdr-cta .btn {
+        min-width: 0;
+        min-height: 44px;
+        padding: 10px 8px;
+        font-size: 12px;
+        white-space: normal;
+        text-align: center
+      }
+
+      [id] {
+        scroll-margin-top: 130px
+      }
+
+      /* ---------- fleet: heading stays on the photo, prose moves below ------- */
+      .fleet-ov {
+        padding: 12px 0 0
+      }
+
+      .fleet-ov .wrap {
+        text-align: right
+      }
+
+      .fleet-ov h2 {
+        font-size: clamp(24px, 6.8vw, 34px);
+        line-height: 1.12;
+        margin: 0
+      }
+
+      .fleet-scrim {
+        background: linear-gradient(200deg, rgba(255, 255, 255, .92) 0%, rgba(255, 255, 255, .72) 45%, rgba(255, 255, 255, .12) 78%, rgba(255, 255, 255, 0) 100%)
+      }
+
+      .fleet-description {
+        font-size: 16px;
+        margin-top: 22px
+      }
+    }
+
+    @media(max-width:359px) {
+      .hero-ov .hero-cta {
+        grid-template-columns: 1fr
+      }
     }
 
     @media(prefers-reduced-motion:reduce) {
@@ -1486,7 +1605,7 @@
         transition: none !important
       }
 
-      .rv {
+      .js-rv .rv {
         opacity: 1;
         transform: none
       }
@@ -1623,13 +1742,12 @@
         <div class="wrap">
           <p class="dim">Флот</p>
           <h2>Четыре судна<br>на промысле</h2>
-          <p class="lead" style="margin-top:24px">Плавзавод ведёт добычу и переработку, средние траулеры работают на
-            лову, транспортный рефрижератор держит холодовую цепь до порта.</p>
         </div>
       </div>
     </figure>
     <div class="wrap">
-      <div class="cards c4 rv" style="margin-top:44px">
+      <p class="fleet-description">Плавзавод ведёт добычу и переработку, средние траулеры работают на лову, транспортный рефрижератор держит холодовую цепь до порта.</p>
+      <div class="cards c4 rv" style="margin-top:36px">
         <article class="ship">
           <div class="ship-draw"><svg viewBox="0 0 460 126" role="img" aria-hidden="true">
               <line class="wline" x1="14" y1="112" x2="450" y2="112" />
@@ -2155,6 +2273,11 @@
 
   <script>
     (function () {
+      /* Reveal-on-scroll. The animation is opt-in: markup stays visible unless
+         this script runs, and threshold 0 plus a bottom rootMargin makes the
+         trigger independent of how tall the observed block is. */
+      if (!('IntersectionObserver' in window)) return;
+      document.documentElement.classList.add('js-rv');
       var io = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           if (!e.isIntersecting) return;
@@ -2169,17 +2292,35 @@
           });
           io.unobserve(e.target);
         });
-      }, { threshold: .16 });
+      }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
       document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+    })();
 
+    (function () {
+      /* Mobile menu. All open-state styling lives in .nav.is-open, so nothing
+         is left behind on the element after closing or resizing to desktop. */
       var b = document.querySelector('.burger'), n = document.querySelector('.nav');
-      b && b.addEventListener('click', function () {
-        var open = n.style.display === 'flex';
-        n.style.display = open ? '' : 'flex';
-        n.style.position = 'absolute'; n.style.top = '70px'; n.style.left = '0'; n.style.right = '0';
-        n.style.flexDirection = 'column'; n.style.background = '#04111B'; n.style.padding = '16px 20px';
-        n.style.gap = '14px'; n.style.borderBottom = '1px solid rgba(147,184,204,.2)';
+      if (!b || !n) return;
+      if (!n.id) n.id = 'main-nav';
+      b.setAttribute('aria-controls', n.id);
+      b.setAttribute('aria-expanded', 'false');
+      function setOpen(open) {
+        n.classList.toggle('is-open', open);
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      b.addEventListener('click', function () {
+        setOpen(!n.classList.contains('is-open'));
       });
+      n.addEventListener('click', function (e) {
+        if (e.target.closest('a')) setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && n.classList.contains('is-open')) { setOpen(false); b.focus(); }
+      });
+      var mq = window.matchMedia('(min-width:1041px)');
+      var onDesktop = function (e) { if (e.matches) setOpen(false); };
+      if (mq.addEventListener) { mq.addEventListener('change', onDesktop); }
+      else if (mq.addListener) { mq.addListener(onDesktop); }
     })();
   </script>
   <script>

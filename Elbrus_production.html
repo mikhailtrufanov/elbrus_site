@@ -1145,14 +1145,23 @@
 
     /* ---------- reveal ---------- */
     .rv {
+      opacity: 1;
+      transform: none
+    }
+
+    .js-rv .rv {
       opacity: 0;
       transform: translateY(18px);
       transition: opacity .7s ease, transform .7s ease
     }
 
-    .rv.in {
+    .js-rv .rv.in {
       opacity: 1;
       transform: none
+    }
+
+    [id] {
+      scroll-margin-top: 86px
     }
 
     /* ---------- responsive ---------- */
@@ -1195,12 +1204,29 @@
         display: none
       }
 
+      .nav.is-open {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 14px;
+        background: #04111B;
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(147, 184, 204, .2)
+      }
+
       .burger {
         display: block
       }
 
-      .hdr .btn {
-        display: none
+      .hdr .hdr-cta {
+        margin-left: auto
+      }
+
+      .hdr .burger {
+        margin-left: 0
       }
     }
 
@@ -1315,6 +1341,48 @@
       .hero-slot {
         height: 170px
       }
+
+      /* ---------- mobile header: logo + menu, CTA row below ---------- */
+      .hdr .wrap {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas: "logo menu" "cta cta";
+        align-items: center;
+        height: auto;
+        gap: 10px 12px;
+        padding-block: 10px
+      }
+
+      .hdr .logo {
+        grid-area: logo
+      }
+
+      .hdr .burger {
+        grid-area: menu;
+        min-height: 44px;
+        margin-left: 0
+      }
+
+      .hdr .hdr-cta {
+        grid-area: cta;
+        margin-left: 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px
+      }
+
+      .hdr .hdr-cta .btn {
+        min-width: 0;
+        min-height: 44px;
+        padding: 10px 8px;
+        font-size: 12px;
+        white-space: normal;
+        text-align: center
+      }
+
+      [id] {
+        scroll-margin-top: 130px
+      }
     }
 
     @media(prefers-reduced-motion:reduce) {
@@ -1323,7 +1391,7 @@
         transition: none !important
       }
 
-      .rv {
+      .js-rv .rv {
         opacity: 1;
         transform: none
       }
@@ -1681,6 +1749,14 @@
 
       .band-scrim {
         background: linear-gradient(180deg, rgba(4, 17, 27, .55), rgba(4, 17, 27, .75))
+      }
+    }
+    /* .prod-text base rules are declared further down, so this override has to
+       come last to win on source order. */
+    @media(max-width:720px) {
+      .prod-text p {
+        text-align: left;
+        text-justify: auto
       }
     }
   </style>
@@ -2044,6 +2120,11 @@
   </footer>
   <script>
     (function () {
+      /* Reveal-on-scroll. The animation is opt-in: markup stays visible unless
+         this script runs, and threshold 0 plus a bottom rootMargin makes the
+         trigger independent of how tall the observed block is. */
+      if (!('IntersectionObserver' in window)) return;
+      document.documentElement.classList.add('js-rv');
       var io = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           if (!e.isIntersecting) return;
@@ -2058,17 +2139,35 @@
           });
           io.unobserve(e.target);
         });
-      }, { threshold: .16 });
+      }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
       document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+    })();
 
+    (function () {
+      /* Mobile menu. All open-state styling lives in .nav.is-open, so nothing
+         is left behind on the element after closing or resizing to desktop. */
       var b = document.querySelector('.burger'), n = document.querySelector('.nav');
-      b && b.addEventListener('click', function () {
-        var open = n.style.display === 'flex';
-        n.style.display = open ? '' : 'flex';
-        n.style.position = 'absolute'; n.style.top = '70px'; n.style.left = '0'; n.style.right = '0';
-        n.style.flexDirection = 'column'; n.style.background = '#04111B'; n.style.padding = '16px 20px';
-        n.style.gap = '14px'; n.style.borderBottom = '1px solid rgba(147,184,204,.2)';
+      if (!b || !n) return;
+      if (!n.id) n.id = 'main-nav';
+      b.setAttribute('aria-controls', n.id);
+      b.setAttribute('aria-expanded', 'false');
+      function setOpen(open) {
+        n.classList.toggle('is-open', open);
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      b.addEventListener('click', function () {
+        setOpen(!n.classList.contains('is-open'));
       });
+      n.addEventListener('click', function (e) {
+        if (e.target.closest('a')) setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && n.classList.contains('is-open')) { setOpen(false); b.focus(); }
+      });
+      var mq = window.matchMedia('(min-width:1041px)');
+      var onDesktop = function (e) { if (e.matches) setOpen(false); };
+      if (mq.addEventListener) { mq.addEventListener('change', onDesktop); }
+      else if (mq.addListener) { mq.addListener(onDesktop); }
     })();
   </script>
 </body>
