@@ -1225,7 +1225,7 @@
         display: none
       }
 
-      .nav-cta {
+      .hdr .nav-cta {
         display: flex;
         gap: 10px;
         margin-top: 4px
@@ -1344,8 +1344,12 @@
         height: 170px
       }
 
+      .hdr .wrap {
+        height: 56px
+      }
+
       [id] {
-        scroll-margin-top: 116px
+        scroll-margin-top: 72px
       }
     }
 
@@ -1747,6 +1751,12 @@
       .crew,
       .crew img {
         min-height: 240px
+      }
+    }
+
+    @media(max-width:720px) {
+      .page-hero {
+        padding-top: 32px
       }
     }
   </style>

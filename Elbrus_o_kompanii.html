@@ -237,7 +237,7 @@ p{margin:0 0 16px}
   .nav.is-open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:14px;background:#04111B;padding:16px 20px;border-bottom:1px solid rgba(147,184,204,.2)}
   .burger{display:block}
   .hdr .hdr-cta{display:none}
-  .nav-cta{display:flex;gap:10px;margin-top:4px}
+  .hdr .nav-cta{display:flex;gap:10px;margin-top:4px}
 }
 @media(max-width:720px){
   body{font-size:16px}
@@ -265,7 +265,8 @@ p{margin:0 0 16px}
   .zone b{min-width:0}
   .hero-slot{height:170px}
 
-  [id]{scroll-margin-top:116px}
+  .hdr .wrap{height:56px}
+  [id]{scroll-margin-top:72px}
   /* fleet: heading stays on the photo, prose moves below */
   .fleet-ov{padding:12px 0 0}
   .fleet-ov .wrap{text-align:right}
@@ -312,6 +313,7 @@ p{margin:0 0 16px}
 @media(max-width:900px){.gallery{grid-template-columns:1fr 1fr}}
 .trust.t3 .wrap{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:600px){.about-third{max-width:100%!important}.trust.t3 .wrap{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}.band-scrim{background:linear-gradient(180deg,rgba(4,17,27,.55),rgba(4,17,27,.75))}}
+@media(max-width:720px){.page-hero{padding-top:32px}}
 </style></head><body>
 <header class="hdr">
   <div class="wrap">
