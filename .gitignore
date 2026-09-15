@@ -6,6 +6,9 @@ pics/*
 !pics/man2.png
 !pics/man3.png
 
+!pics/products/
+!pics/products/*.webp
+
 !pics/Навага нр и бг/
 pics/Навага нр и бг/*
 !pics/Навага нр и бг/IMG-20251007-WA0017.jpg
