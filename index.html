@@ -2329,9 +2329,12 @@
             body: new FormData(form)
           });
           const result = await response.json();
+          const errorMessage = result.errors
+            ? Object.values(result.errors).join(' ')
+            : 'Ошибка отправки сообщения, попробуйте еще раз';
           resultBlock.textContent = result.success
             ? 'Сообщение успешно отправлено'
-            : 'Ошибка отправки сообщения, проверьте обязательные поля';
+            : errorMessage;
           if (result.success) form.reset();
         } catch (error) {
           resultBlock.textContent = 'Ошибка отправки сообщения, попробуйте еще раз';

@@ -2171,9 +2171,12 @@
             body: new FormData(form)
           });
           const result = await response.json();
+          const errorMessage = result.errors
+            ? Object.values(result.errors).join(' ')
+            : 'Ошибка отправки заявки, попробуйте еще раз';
           resultBlock.textContent = result.success
             ? 'Заявка успешно отправлена'
-            : 'Ошибка отправки заявки, проверьте обязательные поля';
+            : errorMessage;
           if (result.success) form.reset();
         } catch (error) {
           resultBlock.textContent = 'Ошибка отправки заявки, попробуйте еще раз';
