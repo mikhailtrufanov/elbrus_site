@@ -1610,6 +1610,7 @@
       }
     }
   </style>
+  <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
 </head>
 
 <body>
@@ -2175,24 +2176,26 @@
       </div>
 
       <div class="two rv" style="margin-top:52px">
-        <form class="form"
-          onsubmit="event.preventDefault();this.reset();alert('Форма демонстрационная — на боевом сайте заявка уйдёт в компанию.')">
+        <form id="contact-form" class="form">
           <h3 style="margin-bottom:6px">Написать нам</h3>
-          <input type="text" placeholder="Имя" required>
-          <input type="tel" placeholder="Телефон" required>
-          <textarea placeholder="Вопрос: работа в рейсе или закупка продукции"></textarea>
+          <div id="contact-form-result" class="result"></div>
+          <input type="text" name="name" placeholder="Имя" required>
+          <input type="tel" name="phone" placeholder="Телефон" required>
+          <textarea name="comment" placeholder="Вопрос: работа в рейсе или закупка продукции"></textarea>
           <label class="consent">
-            <input type="checkbox" required>
+            <input type="checkbox" name="agree-personal-data" value="1" required>
             <span>Нажимая кнопку «Записаться», я даю свое согласие на обработку моих персональных данных, в
               соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и
               для целей, определенных в <a href="#personal-data-consent">Согласии на обработку персональных
                 данных</a>.</span>
           </label>
           <label class="consent">
-            <input type="checkbox" required>
+            <input type="checkbox" name="agree-privacy-policy" value="1" required>
             <span>Я подтверждаю свое согласие с условиями <a href="#privacy-policy">Политики
                 конфиденциальности</a>.</span>
           </label>
+          <div style="height: 100px" id="contact-captcha-container" class="smart-captcha"
+            data-sitekey="ysc1_xzbKjWpqDgeh2Xk5wItHhAvWceT098jtYH0waQwld44b038b"></div>
           <button type="submit" class="btn btn-amber" style="justify-self:start">Отправить</button>
         </form>
         <div class="map-embed" style="min-height:300px;align-self:stretch">
@@ -2306,6 +2309,37 @@
       if (mq.addEventListener) { mq.addEventListener('change', onDesktop); }
       else if (mq.addListener) { mq.addListener(onDesktop); }
     })();
+  </script>
+  <script>
+    document.getElementById('contact-captcha-container').dataset.sitekey =
+      'ysc1_xzbKjWpqDgeh2Xk5wItHhAvWceT098jtYH0waQwld44b038b';
+
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const form = this;
+        const resultBlock = document.getElementById('contact-form-result');
+        resultBlock.textContent = 'Отправка...';
+
+        try {
+          const response = await fetch('Ruslan_script/handler.php', {
+            method: 'POST',
+            body: new FormData(form)
+          });
+          const result = await response.json();
+          resultBlock.textContent = result.success
+            ? 'Сообщение успешно отправлено'
+            : 'Ошибка отправки сообщения, проверьте обязательные поля';
+          if (result.success) form.reset();
+        } catch (error) {
+          resultBlock.textContent = 'Ошибка отправки сообщения, попробуйте еще раз';
+        }
+
+        if (window.smartCaptcha) window.smartCaptcha.reset();
+      });
+    }
   </script>
 </body>
 

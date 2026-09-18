@@ -1733,6 +1733,7 @@
         background: linear-gradient(180deg, rgba(4, 17, 27, .55), rgba(4, 17, 27, .75))
       }
     }
+
     /* .prod-text base rules are declared further down, so this override has to
        come last to win on source order. */
     @media(max-width:720px) {
@@ -1746,6 +1747,7 @@
       }
     }
   </style>
+  <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
 </head>
 
 <body>
@@ -1901,7 +1903,8 @@
         <p>Вся рыба, за исключением сельди, фасуется по два блока в мешки. Камбала, минтай, навага, горбуша, голец — по
           <span class="num">22 килограмма</span>. Треска, кета, нерка — по <span class="num">20 килограмма</span>.
           Сельдь в коробах по <span class="num">20 килограмм</span>. Икра горбуши, кеты, нерки, минтая, трески, наваги
-          выпускается в ястыке свежемороженая в коробах. Печень минтая и трески так же — свежемороженая в коробах.</p>
+          выпускается в ястыке свежемороженая в коробах. Печень минтая и трески так же — свежемороженая в коробах.
+        </p>
       </div>
 
       <div class="gallery rv">
@@ -1924,9 +1927,7 @@
       <h2 class="cat-title">Каталог</h2>
 
       <div class="prods rv">
-        <article class="prod"><img
-            src="pics/products/production-kambala.webp"
-            alt="Камбала" loading="lazy">
+        <article class="prod"><img src="pics/products/production-kambala.webp" alt="Камбала" loading="lazy">
           <div class="prod-b">
             <h3>Камбала</h3>
             <p class="prod-cut">ПБГ или НР</p>
@@ -1934,9 +1935,7 @@
             <p class="prod-pk">Мешок 22 кг · 2 блока</p>
           </div>
         </article>
-        <article class="prod"><img
-            src="pics/products/production-treska.webp"
-            alt="Треска" loading="lazy">
+        <article class="prod"><img src="pics/products/production-treska.webp" alt="Треска" loading="lazy">
           <div class="prod-b">
             <h3>Треска</h3>
             <p class="prod-cut">ПБГ</p>
@@ -1944,9 +1943,7 @@
             <p class="prod-pk">Мешок 20 кг · 2 блока</p>
           </div>
         </article>
-        <article class="prod"><img
-            src="pics/products/production-mintay.webp"
-            alt="Минтай" loading="lazy">
+        <article class="prod"><img src="pics/products/production-mintay.webp" alt="Минтай" loading="lazy">
           <div class="prod-b">
             <h3>Минтай</h3>
             <p class="prod-cut">БГ</p>
@@ -1954,9 +1951,7 @@
             <p class="prod-pk">Мешок 22 кг · 2 блока</p>
           </div>
         </article>
-        <article class="prod"><img
-            src="pics/products/production-navaga.webp"
-            alt="Навага" loading="lazy">
+        <article class="prod"><img src="pics/products/production-navaga.webp" alt="Навага" loading="lazy">
           <div class="prod-b">
             <h3>Навага</h3>
             <p class="prod-cut">БГ</p>
@@ -1964,9 +1959,8 @@
             <p class="prod-pk">Мешок 22 кг · 2 блока</p>
           </div>
         </article>
-        <article class="prod"><img
-            src="pics/products/production-seld-olutorskaya.webp"
-            alt="Сельдь олюторская" loading="lazy">
+        <article class="prod"><img src="pics/products/production-seld-olutorskaya.webp" alt="Сельдь олюторская"
+            loading="lazy">
           <div class="prod-b">
             <h3>Сельдь олюторская</h3>
             <p class="prod-cut">НР</p>
@@ -1974,9 +1968,7 @@
             <p class="prod-pk">Короб 20 кг</p>
           </div>
         </article>
-        <article class="prod"><img
-            src="pics/products/production-gorbusha.webp"
-            alt="Горбуша" loading="lazy">
+        <article class="prod"><img src="pics/products/production-gorbusha.webp" alt="Горбуша" loading="lazy">
           <div class="prod-b">
             <h3>Горбуша</h3>
             <p class="prod-cut">ПБГ · НР · ПСГ</p>
@@ -1985,9 +1977,7 @@
           </div>
         </article>
         <article class="prod">
-          <img
-            src="pics/products/production-keta.webp"
-            alt="Кета" loading="lazy">
+          <img src="pics/products/production-keta.webp" alt="Кета" loading="lazy">
           <div class="prod-b">
             <h3>Кета</h3>
             <p class="prod-cut">ПБГ</p>
@@ -1996,9 +1986,7 @@
           </div>
         </article>
         <article class="prod">
-          <img
-            src="pics/products/production-nerka.webp"
-            alt="Нерка" loading="lazy">
+          <img src="pics/products/production-nerka.webp" alt="Нерка" loading="lazy">
           <div class="prod-b">
             <h3>Нерка</h3>
             <p class="prod-cut">ПБГ</p>
@@ -2007,9 +1995,7 @@
           </div>
         </article>
         <article class="prod">
-          <img
-            src="pics/products/production-golets.webp"
-            alt="Голец" loading="lazy">
+          <img src="pics/products/production-golets.webp" alt="Голец" loading="lazy">
           <div class="prod-b">
             <h3>Голец</h3>
             <p class="prod-cut">ПБГ · НР · ПСГ</p>
@@ -2017,9 +2003,7 @@
             <p class="prod-pk">Мешок 22 кг · 2 блока</p>
           </div>
         </article>
-        <article class="prod"><img
-            src="pics/products/production-ikra.webp"
-            alt="Икра" loading="lazy">
+        <article class="prod"><img src="pics/products/production-ikra.webp" alt="Икра" loading="lazy">
           <div class="prod-b">
             <h3>Икра</h3>
             <p class="prod-cut">В ястыке, свежемороженая</p>
@@ -2028,9 +2012,7 @@
           </div>
         </article>
         <article class="prod">
-          <img
-            src="pics/products/production-pechen.webp"
-            alt="Печень" loading="lazy">
+          <img src="pics/products/production-pechen.webp" alt="Печень" loading="lazy">
           <div class="prod-b">
             <h3>Печень</h3>
             <p class="prod-cut">Свежемороженая</p>
@@ -2062,9 +2044,11 @@
         <div>
           <div class="hr-box" style="margin-top:0"><b>Отдел продаж</b><a href="tel:+79147120816">+7 914 712-08-16</a>
           </div>
-          <p style="color:var(--foam);margin-top:18px;font-family:var(--mono);font-size:13px"><a href="mailto:Fish042011@mail.ru" style="color:var(--foam);text-decoration:underline">Написать нам</a></p>
+          <p style="color:var(--foam);margin-top:18px;font-family:var(--mono);font-size:13px"><a
+              href="mailto:Fish042011@mail.ru" style="color:var(--foam);text-decoration:underline">Написать нам</a></p>
           <div class="msgrs">
-            <a class="msgr" href="https://max.ru/u/f9LHodD0cOJZoiw3vXbMJLRTbSyV14CMwtY31w-Tjgg4xxMLqUXHnYgu-gY" target="_blank" rel="noopener" aria-label="Написать в MAX" title="MAX">
+            <a class="msgr" href="https://max.ru/u/f9LHodD0cOJZoiw3vXbMJLRTbSyV14CMwtY31w-Tjgg4xxMLqUXHnYgu-gY"
+              target="_blank" rel="noopener" aria-label="Написать в MAX" title="MAX">
               <img src="Max_logo_black-1024x1024.png" alt="MAX" />
             </a>
             <a class="msgr" href="https://wa.me/79147120816" target="_blank" rel="noopener"
@@ -2074,18 +2058,22 @@
               </svg></a>
           </div>
         </div>
-        <form class="form"
-          onsubmit="event.preventDefault();this.reset();alert('Форма демонстрационная — на боевом сайте заявка уйдёт в компанию.')">
-          <input type="text" placeholder="Имя" required>
-          <input type="tel" placeholder="Телефон (мессенджер)" required>
-          <input type="email" placeholder="Почта">
-          <textarea placeholder="Комментарий: интересующая продукция и объём"></textarea>
-          <label class="consent"><input type="checkbox" required> <span>Нажимая кнопку «Записаться», я даю свое
+        <form id="production-form" class="form">
+          <div id="production-form-result" class="result"></div>
+          <input type="text" name="name" placeholder="Имя" required>
+          <input type="tel" name="phone" placeholder="Телефон (мессенджер)" required>
+          <input type="email" name="email" placeholder="Почта">
+          <textarea name="comment" placeholder="Комментарий: интересующая продукция и объём"></textarea>
+          <label class="consent"><input type="checkbox" name="agree-personal-data" value="1" required> <span>Нажимая
+              кнопку «Записаться», я даю свое
               согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года
               №152-ФЗ «О персональных данных», на условиях и для целей, определенных в <a
                 href="#personal-data-consent">Согласии на обработку персональных данных</a>.</span></label>
-          <label class="consent"><input type="checkbox" required> <span>Я подтверждаю свое согласие с условиями <a
-                href="#privacy-policy">Политики конфиденциальности</a>.</span></label>
+          <label class="consent"><input type="checkbox" name="agree-privacy-policy" value="1" required> <span>Я
+              подтверждаю свое согласие с условиями <a href="#privacy-policy">Политики
+                конфиденциальности</a>.</span></label>
+          <div style="height: 100px" id="production-captcha-container" class="smart-captcha"
+            data-sitekey="ysc1_xzbKjWpqDgeh2Xk5wItHhAvWceT098jtYH0waQwld44b038b"></div>
           <button type="submit" class="btn btn-amber" style="justify-self:start">Отправить заявку</button>
         </form>
       </div>
@@ -2101,8 +2089,9 @@
         </div>
         <div>
           <h4>Разделы</h4>
-          <a href="Elbrus_o_kompanii.html">О компании</a><a href="index.html#fleet">Флот</a><a href="#catch">Промысел и продукция</a><a
-            href="Elbrus_work.html">Работа в море</a><a href="Elbrus_work.html#life">Условия труда</a><a href="#contacts">Контакты</a>
+          <a href="Elbrus_o_kompanii.html">О компании</a><a href="index.html#fleet">Флот</a><a href="#catch">Промысел и
+            продукция</a><a href="Elbrus_work.html">Работа в море</a><a href="Elbrus_work.html#life">Условия труда</a><a
+            href="#contacts">Контакты</a>
         </div>
         <div>
           <h4>Контакты</h4>
@@ -2110,7 +2099,8 @@
           <a href="tel:+79147120816">Отдел продаж: +7 914 712-08-16</a>
         </div>
       </div>
-      <div class="ftr-btm">© 2026 ООО «Эльбрус» · ИНН 2538146392 · <a href="#privacy-policy">Политика конфиденциальности</a> · <a href="#personal-data-consent">Согласие на обработку персональных данных</a></div>
+      <div class="ftr-btm">© 2026 ООО «Эльбрус» · ИНН 2538146392 · <a href="#privacy-policy">Политика
+          конфиденциальности</a> · <a href="#personal-data-consent">Согласие на обработку персональных данных</a></div>
       <a class="ftr-credit" href="#">Разработка - MikhailTrufanov</a>
     </div>
   </footer>
@@ -2165,6 +2155,33 @@
       if (mq.addEventListener) { mq.addEventListener('change', onDesktop); }
       else if (mq.addListener) { mq.addListener(onDesktop); }
     })();
+
+    const productionForm = document.getElementById('production-form');
+    if (productionForm) {
+      productionForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const form = this;
+        const resultBlock = document.getElementById('production-form-result');
+        resultBlock.textContent = 'Отправка...';
+
+        try {
+          const response = await fetch('Ruslan_script/handler.php', {
+            method: 'POST',
+            body: new FormData(form)
+          });
+          const result = await response.json();
+          resultBlock.textContent = result.success
+            ? 'Заявка успешно отправлена'
+            : 'Ошибка отправки заявки, проверьте обязательные поля';
+          if (result.success) form.reset();
+        } catch (error) {
+          resultBlock.textContent = 'Ошибка отправки заявки, попробуйте еще раз';
+        }
+
+        if (window.smartCaptcha) window.smartCaptcha.reset();
+      });
+    }
   </script>
 </body>
 
