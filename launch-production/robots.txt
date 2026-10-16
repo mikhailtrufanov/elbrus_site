@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /Ruslan_script/
+Allow: /
+
+Sitemap: https://elbrus-fish.ru/sitemap.xml

@@ -1,7 +1,21 @@
 imageswa.png
 
+/media_work/
+
 pics/*
 !pics/hero_more_1080_ultralight.mp4
+!pics/hero_more_mobile_720p.mp4
+!pics/hero_more_1080_poster*.webp
+!pics/elb_*_new*.webp
+!pics/crue/
+pics/crue/*
+!pics/crue/*_4_3*.webp
+!pics/og/
+!pics/og/*.jpg
+!pics/icons/
+!pics/icons/*.png
+!pics/site-photos/
+!pics/site-photos/*.webp
 !pics/man1.png
 !pics/man2.png
 !pics/man3.png
@@ -16,3 +30,8 @@ pics/Навага нр и бг/*
 !pics/Треска/
 pics/Треска/*
 !pics/Треска/WhatsApp Image 2026-07-27 at 20.57.02 (1).jpeg
+
+# обработчик форм загружается на хостинг вручную (секреты в config.php), в Git не попадает
+Ruslan_script/
+elbrus-config.php
+_backup*/

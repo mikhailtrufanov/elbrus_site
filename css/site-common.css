@@ -1,0 +1,76 @@
+/* Эльбрус — общие стили для всех страниц. */
+/* ---------- Окна «Согласие на обработку ПД» и «Политика конфиденциальности» ---------- */
+  .pdc-overlay{position:fixed;inset:0;z-index:10000;display:none;align-items:flex-start;justify-content:center;padding:40px 16px;background:rgba(4,17,27,.6);overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .pdc-overlay.is-open{display:flex}
+  .pdc-modal{position:relative;width:100%;max-width:794px;margin:auto 0;background:#fff;color:#000;border-radius:2px;box-shadow:0 20px 60px rgba(0,0,0,.35);padding:56px 57px 48px 113px}
+  .pdc-doc{color:#000;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+  .pdc-doc p{margin:0;padding:0;font:inherit;color:inherit;text-align:justify;letter-spacing:normal;text-transform:none}
+  .pdc-doc a{color:#0563C1;text-decoration:underline;word-break:break-all}
+  /* Согласие — как в Word: Calibri 12 pt, множитель 1,16, после абзаца 8 pt, по ширине */
+  .pdc-doc--consent{font-family:Calibri,Carlito,'Segoe UI',Arial,sans-serif;font-size:12pt;line-height:1.16}
+  .pdc-doc--consent p{margin:0 0 8pt}
+  .pdc-doc--consent p.pdc-center{text-align:center;font-weight:700}
+  .pdc-doc--consent p.pdc-empty{height:1.16em}
+  /* Положение — как в Word: Times New Roman 12 pt, множитель 1,16, после абзаца 8 pt, по ширине;
+     все заголовки жирные по центру */
+  .pdc-doc--policy{font-family:'Times New Roman',Times,'Liberation Serif',serif;font-size:12pt;line-height:1.16}
+  .pdc-doc--policy p{margin:0 0 8pt}
+  .pdc-doc--policy p.pp-c{text-align:center}
+  .pdc-doc--policy p.pp-b{font-weight:700;text-align:center}
+  .pdc-close-x{position:absolute;top:12px;right:12px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;padding:0;border:0;background:transparent;color:#000;cursor:pointer;border-radius:2px;transition:.2s}
+  .pdc-close-x:hover{background:#EEF4F7}
+  .pdc-close-x svg{width:22px;height:22px}
+  .pdc-actions{display:flex;justify-content:center;margin-top:24px}
+  .pdc-close-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:130px;font-family:'Oswald','Arial Narrow',Impact,sans-serif;text-transform:uppercase;letter-spacing:.07em;font-size:14px;font-weight:500;line-height:1.2;padding:13px 24px;border-radius:2px;border:1px solid #0083DB;background:#0083DB;color:#fff;cursor:pointer;transition:.2s}
+  .pdc-close-btn:hover{background:#0069B0;border-color:#0069B0;color:#fff}
+  body.pdc-lock{overflow:hidden}
+  @media (max-width:820px){.pdc-modal{padding:56px 40px 40px 56px}}
+  @media (max-width:560px){.pdc-overlay{padding:16px}.pdc-modal{padding:52px 18px 28px}.pdc-doc--consent,.pdc-doc--policy{font-size:11pt}}
+
+/* ---------- Уведомление cookie ---------- */
+  .ckc-banner{position:fixed;right:24px;bottom:24px;z-index:40;box-sizing:border-box;width:calc(100% - 48px);max-width:900px;display:flex;align-items:flex-start;gap:32px;padding:28px 32px;background:#fff;color:var(--ink,#0A2130);border-radius:14px;box-shadow:0 14px 44px rgba(4,17,27,.18),0 2px 8px rgba(4,17,27,.08);font-family:var(--body,'Golos Text','Segoe UI',system-ui,sans-serif);font-size:15px;line-height:1.6;animation:ckc-in .35s ease both}
+  .ckc-banner[hidden],.ckc-overlay[hidden]{display:none!important}
+  .ckc-banner__text{flex:1 1 auto;min-width:0}
+  .ckc-banner__text p{margin:0 0 6px;color:inherit}
+  .ckc-link{display:inline;margin:0;padding:0;border:0;background:none;font:inherit;color:var(--steel,#1B4A66);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+  .ckc-link:hover{color:var(--blue,#0083DB)}
+  .ckc-btn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-width:160px;margin:0;font-family:var(--display,'Oswald','Arial Narrow',Impact,sans-serif);text-transform:uppercase;letter-spacing:.07em;font-size:14px;font-weight:500;line-height:1.2;padding:15px 28px;border-radius:2px;border:1px solid var(--orange,#F07A1E);background:var(--orange,#F07A1E);color:var(--abyss,#04111B);cursor:pointer;transition:background-color .2s,border-color .2s}
+  .ckc-btn:hover{background:var(--orange-d,#D2650F);border-color:var(--orange-d,#D2650F)}
+  .ckc-link:focus-visible,.ckc-btn:focus-visible,.ckc-x:focus-visible,.ckc-modal a:focus-visible{outline:3px solid var(--blue,#0083DB);outline-offset:3px;border-radius:2px}
+  .ckc-overlay{position:fixed;inset:0;z-index:9990;display:flex;align-items:center;justify-content:center;box-sizing:border-box;padding:24px;background:rgba(4,17,27,.6);animation:ckc-fade .2s ease both}
+  .ckc-modal{position:relative;box-sizing:border-box;width:100%;max-width:760px;max-height:calc(100vh - 48px);max-height:calc(100dvh - 48px);display:flex;flex-direction:column;background:#fff;color:var(--ink,#0A2130);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.35);font-family:var(--body,'Golos Text','Segoe UI',system-ui,sans-serif);outline:none}
+  .ckc-modal__body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:44px 48px 12px}
+  .ckc-modal__title{margin:0 48px 20px 0;font-family:var(--display,'Oswald','Arial Narrow',Impact,sans-serif);font-weight:500;text-transform:uppercase;letter-spacing:.02em;font-size:26px;line-height:1.2;color:var(--ink,#0A2130)}
+  .ckc-modal__body p{margin:0 0 14px;font-size:16px;line-height:1.62;color:var(--ink,#0A2130)}
+  .ckc-modal__body a{color:var(--steel,#1B4A66);text-decoration:underline;text-underline-offset:3px;word-break:break-word}
+  .ckc-modal__body a:hover{color:var(--blue,#0083DB)}
+  .ckc-modal__foot{flex:0 0 auto;display:flex;justify-content:flex-end;padding:20px 48px 32px;border-top:1px solid #E3ECF1}
+  .ckc-x{position:absolute;top:14px;right:14px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;padding:0;border:0;background:transparent;color:var(--ink,#0A2130);cursor:pointer;border-radius:2px;transition:background-color .2s}
+  .ckc-x:hover{background:var(--ice,#EEF4F7)}
+  .ckc-x svg{width:22px;height:22px}
+  body.ckc-lock{overflow:hidden}
+  @keyframes ckc-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @keyframes ckc-fade{from{opacity:0}to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){.ckc-banner,.ckc-overlay{animation:none}}
+  @media (max-width:640px){
+    .ckc-banner{right:12px;left:12px;bottom:12px;bottom:max(12px,env(safe-area-inset-bottom));width:auto;flex-direction:column;align-items:stretch;gap:16px;padding:20px;font-size:14px}
+    .ckc-banner .ckc-btn{width:100%}
+    .ckc-overlay{padding:12px}
+    .ckc-modal{max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px)}
+    .ckc-modal__body{padding:52px 20px 8px}
+    .ckc-modal__title{margin-right:0;font-size:21px}
+    .ckc-modal__body p{font-size:15px}
+    .ckc-modal__foot{padding:16px 20px 20px}
+    .ckc-modal__foot .ckc-btn{width:100%}
+  }
+
+/* ---------- Обложка видео Rutube (плеер грузится по нажатию) ---------- */
+.video-facade{position:relative;display:block;width:100%;height:100%;padding:0;margin:0;border:0;background:#000;color:#fff;cursor:pointer;overflow:hidden}
+.video-facade img{width:100%;height:100%;object-fit:cover;display:block;opacity:.82;transition:opacity .2s}
+.video-facade:hover img{opacity:1}
+.video-facade__play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:rgba(4,17,27,.55);border:2px solid #fff}
+.video-facade__play::after{content:"";position:absolute;left:29px;top:21px;border-left:24px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent}
+.video-facade__label{position:absolute;left:0;right:0;bottom:18px;text-align:center;font-family:var(--display,'Oswald',sans-serif);text-transform:uppercase;letter-spacing:.08em;font-size:15px;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.video-facade:focus-visible{outline:3px solid var(--amber,#E8A33D);outline-offset:-3px}
+/* ---------- Формы: состояние отправки ---------- */
+.form button[aria-busy="true"]{opacity:.6;cursor:progress}
