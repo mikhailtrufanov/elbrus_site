@@ -35,3 +35,11 @@ pics/Треска/*
 Ruslan_script/
 elbrus-config.php
 _backup*/
+
+# Старые медиа сохранены локально, но не публикуются
+/Max_logo_black-1024x1024.png
+/pics/man1.png
+/pics/man2.png
+/pics/man3.png
+/pics/products/home-*.webp
+/pics/Треска/WhatsApp Image 2026-07-27 at 20.57.02 (1).jpeg
